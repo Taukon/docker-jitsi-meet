@@ -1,0 +1,29 @@
+services:
+
+  rtcstats_server:
+    image: taukon/rtcstats-server-s3-dynamodb-endpoints
+    # ports:
+    #   - 3000:3000
+    #   - 8095:8095
+    env_file:
+      - ./rtcstats/.env
+      - ./rtcstats/rtcstats-server/.env
+    networks:
+      meet.jitsi:
+        aliases:
+            - rtcstats-server.meet.jitsi
+
+
+  rtc_visualizer:
+    image: taukon/rtc-visualizer-s3-dynamodb-endpoints
+    ports:
+      - 8087:8087
+    volumes:
+      - ./rtcstats/rtc-visualizer/.data:/rtc-visualizer/.data
+    env_file:
+      - ./rtcstats/.env
+      - ./rtcstats/rtc-visualizer/.env
+    networks:
+      meet.jitsi:
+        aliases:
+            - rtc-visualizer.meet.jitsi
