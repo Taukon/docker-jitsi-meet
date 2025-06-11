@@ -1,6 +1,7 @@
 services:
 
   rtcstats_server:
+    # https://github.com/Taukon/rtcstats-server/tree/feat/env-config-for-s3-dynamodb-endpoints
     image: taukon/rtcstats-server-s3-dynamodb-endpoints
     restart: ${RESTART_POLICY:-unless-stopped}
     # ports:
@@ -16,6 +17,7 @@ services:
 
 
   rtc_visualizer:
+    # https://github.com/Taukon/rtc-visualizer/tree/feat/env-vars-for-s3-dynamodb-endpoints
     image: taukon/rtc-visualizer-s3-dynamodb-endpoints
     restart: ${RESTART_POLICY:-unless-stopped}
     ports:
