@@ -1,7 +1,7 @@
 services:
 
   rtcstats_server:
-    # https://github.com/Taukon/rtcstats-server/tree/feat/env-config-for-s3-dynamodb-endpoints
+    # image source: https://github.com/Taukon/rtcstats-server/tree/feat/env-config-for-s3-dynamodb-endpoints
     image: taukon/rtcstats-server-s3-dynamodb-endpoints
     restart: ${RESTART_POLICY:-unless-stopped}
     # ports:
@@ -17,8 +17,9 @@ services:
 
 
   rtc_visualizer:
-    # https://github.com/Taukon/rtc-visualizer/tree/feat/env-vars-for-s3-dynamodb-endpoints
-    image: taukon/rtc-visualizer-s3-dynamodb-endpoints
+    # image source: https://github.com/Taukon/rtc-visualizer/tree/feat/env-vars-for-s3-dynamodb-endpoints-nginx
+    # (only add Nginx proxy for the RTC Visualizer: https://github.com/Taukon/rtc-visualizer/tree/feat/nginx-proxy)
+    image: taukon/rtc-visualizer-s3-dynamodb-endpoints-nginx
     restart: ${RESTART_POLICY:-unless-stopped}
     ports:
       - 8087:8087
