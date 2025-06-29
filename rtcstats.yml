@@ -17,9 +17,8 @@ services:
 
 
   rtc_visualizer:
-    # image source: https://github.com/Taukon/rtc-visualizer/tree/feat/env-vars-for-s3-dynamodb-endpoints-nginx
-    # (only add Nginx proxy for the RTC Visualizer: https://github.com/Taukon/rtc-visualizer/tree/feat/nginx-proxy)
-    image: taukon/rtc-visualizer-s3-dynamodb-endpoints-nginx
+    # image source: https://github.com/Taukon/rtc-visualizer/tree/feat/nginx-proxy
+    image: taukon/rtc-visualizer-nginx-proxy
     restart: ${RESTART_POLICY:-unless-stopped}
     ports:
       - 8087:8087
