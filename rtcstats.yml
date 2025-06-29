@@ -1,12 +1,9 @@
 services:
 
-  rtcstats_server:
-    # image source: https://github.com/Taukon/rtcstats-server/tree/feat/env-config-for-s3-dynamodb-endpoints
-    image: taukon/rtcstats-server-s3-dynamodb-endpoints
+  rtcstats-server:
+    # https://github.com/Taukon/rtcstats-server
+    image: taukon/rtcstats-server
     restart: ${RESTART_POLICY:-unless-stopped}
-    # ports:
-    #   - 3000:3000
-    #   - 8095:8095
     env_file:
       - ./rtcstats/.env
       - ./rtcstats/rtcstats-server/.env
@@ -16,12 +13,10 @@ services:
             - rtcstats-server.meet.jitsi
 
 
-  rtc_visualizer:
+  rtc-visualizer:
     # image source: https://github.com/Taukon/rtc-visualizer/tree/feat/nginx-proxy
     image: taukon/rtc-visualizer-nginx-proxy
     restart: ${RESTART_POLICY:-unless-stopped}
-    ports:
-      - 8087:8087
     volumes:
       - ./rtcstats/rtc-visualizer/.data:/rtc-visualizer/.data
     env_file:

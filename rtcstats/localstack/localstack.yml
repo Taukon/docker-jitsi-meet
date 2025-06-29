@@ -1,8 +1,8 @@
 services:
 
   rtcstats_initialize:
-      # https://github.com/Taukon/rtcstats-server/tree/feat/sample-init-scripts-s3-dynamodb
-      image: taukon/rtcstats-server-init-aws
+      # https://github.com/Taukon/rtcstats-server
+      image: taukon/rtcstats-server
       env_file:
         - ./rtcstats/.env
       entrypoint: /bin/sh
